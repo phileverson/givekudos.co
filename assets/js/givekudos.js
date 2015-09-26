@@ -47,6 +47,21 @@ var IIE_CPT_MEMBERS = [
     '10153179233426359'
     ];
 
+
+var ENTSOC_F15_TEAM = [
+    '10207749653879522', 
+    '10204577643235089', 
+    '10206964800572319', 
+    '1200920189923057', 
+    '10208034184961237', 
+    '1454370258226096', 
+    '10153634948817641', 
+    '425374680980974', 
+    '10153549645887597', 
+    '10153039968177102', 
+    '10152759677206431'
+    ]
+
 function initFBAuthAndFormTrigger () {
   // start of fb auth and fb commands...
   // window.fbAsyncInit = function() {
@@ -72,7 +87,8 @@ function initFBAuthAndFormTrigger () {
      var kudosGiverUserID = response.authResponse.userID;
      console.log(kudosGiverUserID);
 
-     if (userInGroup(IIE_CPT_MEMBERS, kudosGiverUserID)) {
+     // Check if this is someone from within IIE or from EntSoc
+     if (userInGroup(IIE_CPT_MEMBERS, kudosGiverUserID) || userInGroup(ENTSOC_F15_TEAM, kudosGiverUserID)) {
 
         // **********************************************
         // **********    READ ME!!!    ******************
@@ -86,7 +102,9 @@ function initFBAuthAndFormTrigger () {
 
      }
 
-     // ********** CODE NEEDED TO GET STRING OF GROUP MEMEBERS FROM GROUP YOU'RE AN ADMIN OF... ********** 
+     // var kudosbotGroups = ['537514643069283',''];
+
+     // // ********** CODE NEEDED TO GET STRING OF GROUP MEMEBERS FROM GROUP YOU'RE AN ADMIN OF... ********** 
      // for (var i = 0; i < kudosbotGroups.length; i++) {
        
      // var stringOfIDs = '';
